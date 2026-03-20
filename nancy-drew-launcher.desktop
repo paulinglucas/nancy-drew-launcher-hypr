@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Nancy Drew Launcher
+Comment=Launch Nancy Drew games via Wine
+Exec=python3 /home/jamespsullivan/Dev/nancy-drew-launcher-hypr/launcher.py
+Icon=/home/jamespsullivan/Dev/nancy-drew-launcher-hypr/assets/icon.svg
+Terminal=false
+Type=Application
+Categories=Game;

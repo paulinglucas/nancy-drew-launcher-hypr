@@ -1,0 +1,4 @@
+assets/*.mp3
+config.json
+__pycache__/
+.claude/

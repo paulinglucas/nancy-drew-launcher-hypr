@@ -1,0 +1,14 @@
+{
+  "games_dir": "~/Games/NancyDrew",
+  "wineprefix": "~/Games/NancyDrew/wineprefix",
+  "music_selection": "random",
+  "default_settings": {
+    "game_width": 1024,
+    "game_height": 768,
+    "output_width": null,
+    "output_height": null,
+    "use_gamescope": true,
+    "env_vars": {}
+  },
+  "games": []
+}

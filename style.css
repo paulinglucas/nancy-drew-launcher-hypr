@@ -1,0 +1,295 @@
+/* Nancy Drew Launcher — Game HUD Theme
+ * Inspired by the classic teal border, brass accents,
+ * and Victorian damask patterns of the original games. */
+
+/* === Color Palette — pulled from the game screenshots === */
+@define-color teal_dark #16585a;
+@define-color teal_mid #1e7a7d;
+@define-color teal_light #2a9a9d;
+@define-color teal_glow rgba(42, 154, 157, 0.25);
+
+@define-color brass #c8a44e;
+@define-color brass_dim #8a7235;
+@define-color brass_glow rgba(200, 164, 78, 0.2);
+
+@define-color parchment #e8dcc8;
+@define-color parchment_dark #bfb49e;
+@define-color parchment_dim #9a8e78;
+
+@define-color panel_bg #0e1518;
+@define-color panel_surface #141e22;
+@define-color panel_hover #1a2a2e;
+
+@define-color text_primary #e0dace;
+@define-color text_secondary #9a9486;
+@define-color text_dim #5e5a52;
+
+@define-color border_inner #2a3a3e;
+@define-color status_green #4a9e5a;
+@define-color status_red #9e4a4a;
+
+/* === Outer Frame — the ornate teal border from the game HUD === */
+.outer-frame {
+    background: linear-gradient(180deg, #1a6060, #145050 20%, #1a6060 50%, #145050 80%, #1a6060);
+    padding: 6px;
+    border: 2px solid #0e3e3e;
+    border-radius: 10px;
+}
+
+/* === Inner Frame — the dark content area inside the teal border === */
+.inner-frame {
+    background-color: @panel_bg;
+    border: 1px solid @border_inner;
+    border-radius: 6px;
+}
+
+/* === Base Window === */
+window {
+    background-color: transparent;
+    color: @text_primary;
+}
+
+/* === Top Bar — ND monogram + close === */
+.top-bar {
+    padding: 6px 12px 0 12px;
+}
+
+/* ND Monogram — brass medallion like the game's bottom-left emblem */
+.nd-monogram {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    color: @brass;
+    background-color: alpha(@brass, 0.08);
+    border: 1px solid @brass_dim;
+    border-radius: 50%;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 0;
+    text-shadow: 0 0 8px @brass_glow;
+}
+
+.nd-monogram:hover {
+    background-color: alpha(@brass, 0.2);
+    border-color: @brass;
+    color: #e0c868;
+    text-shadow: 0 0 12px alpha(@brass, 0.5);
+}
+
+/* Close button — clear X */
+.close-button {
+    font-size: 14px;
+    color: @text_dim;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0;
+}
+
+.close-button:hover {
+    color: @status_red;
+    background-color: alpha(@status_red, 0.1);
+}
+
+/* === Header — Title Area === */
+.header-box {
+    padding: 4px 16px 8px 16px;
+}
+
+.app-title {
+    font-family: "Playfair Display", "Georgia", serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: @parchment;
+    letter-spacing: 4px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 0 20px @brass_glow;
+    margin-top: 4px;
+}
+
+.app-subtitle {
+    font-family: "DM Sans", "Helvetica Neue", sans-serif;
+    font-size: 10px;
+    margin-top: 6px;
+    font-weight: 300;
+    color: @brass_dim;
+    letter-spacing: 5px;
+}
+
+/* Ornamental flourishes */
+.flourish {
+    font-size: 10px;
+    color: @teal_mid;
+    letter-spacing: 2px;
+}
+
+.ornament-diamond {
+    font-size: 8px;
+    color: @brass;
+}
+
+/* === Search Bar — parchment-tinted input === */
+.search-entry {
+    background-color: @panel_surface;
+    border: 1px solid @border_inner;
+    border-radius: 4px;
+    color: @parchment;
+    padding: 6px 10px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    transition: border-color 200ms ease-in-out;
+}
+
+.search-entry:focus {
+    border-color: @teal_mid;
+    box-shadow: 0 0 0 1px @teal_glow;
+}
+
+/* === Scrolled Area === */
+.scrolled-area {
+    background-color: @panel_bg;
+}
+
+/* Teal scrollbar — modeled after the game HUD slider:
+ * visible recessed trough with a chunky teal slider */
+scrollbar {
+    background-color: transparent;
+    padding: 2px;
+}
+
+scrollbar trough {
+    background-color: #0b1c1e;
+    border: 1px solid #1a4042;
+    border-radius: 4px;
+    min-width: 10px;
+}
+
+scrollbar slider {
+    background: linear-gradient(90deg, #1a5e60, #228588, #1a5e60);
+    border: 1px solid @teal_mid;
+    border-radius: 3px;
+    min-width: 8px;
+    min-height: 36px;
+    transition: all 150ms ease-in-out;
+}
+
+scrollbar slider:hover {
+    background: linear-gradient(90deg, #1e6e70, #2a9a9d, #1e6e70);
+    border-color: @teal_light;
+}
+
+scrollbar slider:active {
+    background: linear-gradient(90deg, #228888, #30b0b3, #228888);
+    border-color: @teal_light;
+}
+
+/* === Game List === */
+.game-list {
+    background-color: transparent;
+    padding: 4px 4px;
+}
+
+/* Game rows — like inventory slots in the HUD */
+.game-row {
+    background-color: transparent;
+    border-bottom: 1px solid alpha(@teal_dark, 0.3);
+    transition: background-color 150ms ease-in-out;
+}
+
+.game-row:hover {
+    background-color: @panel_hover;
+}
+
+.game-row-inner {
+    padding: 12px 24px 12px 16px;
+}
+
+/* Case number — brass, scaled down */
+.case-number {
+    font-family: "Special Elite", "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: @brass;
+    min-width: 32px;
+    letter-spacing: 1px;
+}
+
+/* Case title — bold, readable */
+.case-title {
+    font-family: "Playfair Display", "Georgia", serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: @parchment;
+    transition: color 150ms ease-in-out;
+}
+
+.game-row:hover .case-title {
+    color: @brass;
+}
+
+.case-year {
+    font-family: "Liberation Serif", "Georgia", serif;
+    font-size: 12px;
+    color: @parchment_dim;
+}
+
+/* Launch button — rectangular brass pill */
+.launch-button {
+    background-color: transparent;
+    border: 1px solid alpha(@brass_dim, 0.5);
+    border-radius: 4px;
+    color: @brass_dim;
+    padding: 2px 10px;
+    font-size: 8px;
+    min-width: 36px;
+    min-height: 22px;
+    margin-left: 8px;
+    transition: all 200ms ease-in-out;
+}
+
+.launch-button:hover {
+    background-color: @brass;
+    color: @panel_bg;
+    border-color: @brass;
+}
+
+/* Games not found — like faded case files */
+.game-not-found .case-title,
+.game-not-found .case-number {
+    opacity: 0.3;
+}
+
+.game-not-found .launch-button {
+    opacity: 0.15;
+}
+
+/* === Footer — Music Selector (inventory bar style) === */
+.footer-box {
+    padding: 4px 16px 10px 16px;
+}
+
+.ornate-divider {
+    background-color: @teal_dark;
+    min-height: 1px;
+    opacity: 0.5;
+}
+
+.music-row {
+    padding: 2px 0;
+}
+
+.music-icon {
+    font-size: 14px;
+    color: @brass;
+}
+
+.music-dropdown {
+    background-color: @panel_surface;
+    border: 1px solid @border_inner;
+    border-radius: 4px;
+    color: @parchment_dim;
+    font-size: 11px;
+    font-family: "DM Sans", sans-serif;
+}
